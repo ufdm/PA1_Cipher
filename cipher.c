@@ -1,2 +1,8 @@
+#include <stdio.h>
 
-ghjk
+int main()
+{
+    printf("Hello World");
+
+    return 0;
+}
