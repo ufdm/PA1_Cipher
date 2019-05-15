@@ -2,7 +2,7 @@
 #include <math.h>
 
 char convertToCaps (char msg[], int i);
-char ceaserEncrypt(int key, char msg[], int i);
+char rotEncrypt(int key, char msg[], int i);
 
 int main()
 {
@@ -12,11 +12,31 @@ int main()
     for(int i = 1, msg[i] != \0 /*check rules for chars*/ ) {
         tempN = msg[i];
         tempN = convertToCaps(tempN, i);
-        tempN = 
+        tempN = rotEncrypt
         msg[i] = 
     }
     
-    //int choice;
+    
+    return 0;
+}
+
+char convertToCaps (char msg[], int i) {
+    if (msg[i] > 97) {
+            msg[i] = msg [i] - 32;
+    }    
+}
+
+char rot Encrypt(int key, char msg[], int i) {
+    char msg[i] += key;
+    
+    return (msg[i]);
+}
+
+
+
+
+
+//int choice;
     /* Notes
     use an arry to store the message? and char to save decrypted/encrypted messages
     */
@@ -40,17 +60,3 @@ int main()
    
     
     printf("Integer = %d \n", choice); */
-    return 0;
-}
-
-char convertToCaps (char msg[], int i) {
-    if (msg[i] > 97) {
-            msg[i] = msg [i] - 32;
-    }    
-}
-
-char ceaserEncrypt(int key, char msg[], int i) {
-    char msg[i] += key;
-    
-    return (msg[i]);
-}
