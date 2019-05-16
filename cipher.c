@@ -1,35 +1,39 @@
 #include <stdio.h>
 #include <math.h>
 
-char convertToCaps (char msg[], int i);
-char rotEncrypt(int key, char msg[], int i);
+int convertToCaps (int letter);
+int rotEncrypt(int key, int letter);
 
 int main()
 {
-    char msg[] = "This is just a bunch of if satements isnt it?";
+    char msg[];
     int tempN;
+    int key;
     
-    for(int i = 1, msg[i] != \0 /*check rules for chars*/ ) {
+    msg[] =  = "This is just a bunch of if satements isnt it?"
+    key = 34
+    
+    for(int i = 1; msg[i] != "\0"; /*check rules for chars*/ ) {
         tempN = msg[i];
-        tempN = convertToCaps(tempN, i);
-        tempN = rotEncrypt
-        msg[i] = 
+        tempN = convertToCaps(tempN);
+        tempN = rotEncrypt(key, tempN);
+        msg[i] = tempN;
     }
     
     
     return 0;
 }
 
-char convertToCaps (char msg[], int i) {
-    if (msg[i] > 97) {
-            msg[i] = msg [i] - 32;
+int convertToCaps (int letter) {
+    if (letter > 97) {
+            letter = letter - 32;
     }    
 }
 
-char rot Encrypt(int key, char msg[], int i) {
-    char msg[i] += key;
+int rotEncrypt(int key, int letter) {
+    letter += key;
     
-    return (msg[i]);
+    return (letter);
 }
 
 
