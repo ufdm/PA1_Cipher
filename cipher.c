@@ -6,34 +6,44 @@ int rotEncrypt(int key, int letter);
 
 int main()
 {
-    char msg[];
+    char msg[] = "This is just a bunch of if satements isnt it?";
     int tempN;
     int key;
     
-    msg[] =  = "This is just a bunch of if satements isnt it?"
-    key = 34
+    key = 34;
     
-    for(int i = 1; msg[i] != "\0"; /*check rules for chars*/ ) {
+           
+    for(int i = 1; msg[i] != '\0'; i++) {
         tempN = msg[i];
         tempN = convertToCaps(tempN);
+        printf("%d ", tempN);
         tempN = rotEncrypt(key, tempN);
+        printf("%d ", tempN);
         msg[i] = tempN;
+        
+        printf("test %d\n", i);
     }
     
+    int c = 0;
+    /*while (msg[c] != '\0') {
+        printf("%c", msg[c]);
+        c++;
+    }*/
+
     
     return 0;
 }
 
 int convertToCaps (int letter) {
     if (letter > 97) {
-            letter = letter - 32;
+            letter = letter - 32;            
     }    
 }
 
 int rotEncrypt(int key, int letter) {
-    letter += key;
+    letter = (letter + key) % 26 ;
     
-    return (letter);
+    return (letter);    
 }
 
 
