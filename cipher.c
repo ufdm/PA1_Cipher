@@ -1,34 +1,35 @@
 #include <stdio.h>
 #include <math.h>
 
+//Declaring Functions
+
 int convertToCaps (int letter);
 int rotEncrypt(int key, int letter);
 
 int main()
 {
-    char msg[] = "This is just a bunch of if satements isnt it?";
+    char msg[] = "Testing. Testing. Is this thing on?\n";
     int tempN;
     int key;
     
-    key = 34;
+    key = 1;
     
            
-    for(int i = 1; msg[i] != '\0'; i++) {
-        tempN = msg[i];
-        tempN = convertToCaps(tempN);
-        printf("%d ", tempN);
-        tempN = rotEncrypt(key, tempN);
-        printf("%d ", tempN);
-        msg[i] = tempN;
+    for(int i = 0; msg[i] != '\0'; i++) {
+        printf("%c", msg[i]);
         
-        printf("test %d\n", i);
+        if((msg[i] >= 65 && msg[i] <= 90) || (msg[i] >= 97 && msg[i] <= 122)) {            
+            tempN = msg[i];
+            tempN = convertToCaps(tempN);
+            tempN = rotEncrypt(key, tempN);
+            msg[i] = tempN;
+        }
     }
-    
-    int c = 0;
-    /*while (msg[c] != '\0') {
-        printf("%c", msg[c]);
-        c++;
-    }*/
+        
+    for(int i = 0; msg[i] != '\0'; i++) {
+        printf("%c", msg[i]);
+    }
+    printf("\n");
 
     
     return 0;
@@ -36,12 +37,14 @@ int main()
 
 int convertToCaps (int letter) {
     if (letter > 97) {
-            letter = letter - 32;            
-    }    
+            letter = letter - 32;
+            return(letter);
+    }
+    return(letter);
 }
 
 int rotEncrypt(int key, int letter) {
-    letter = (letter + key) % 26 ;
+    letter = (letter + key);
     
     return (letter);    
 }
@@ -50,11 +53,7 @@ int rotEncrypt(int key, int letter) {
 
 
 
-//int choice;
-    /* Notes
-    use an arry to store the message? and char to save decrypted/encrypted messages
-    */
-    /*int choice;
+/*    int choice;
     
     printf("Please choose an option : \n");
     printf("\n");
@@ -63,7 +62,7 @@ int rotEncrypt(int key, int letter) {
     
     scanf("%d", &choice);
     
-    // 
+    
     switch(choice) {
         case 1:
             printf("Choose Cipher Type: \n \n");
